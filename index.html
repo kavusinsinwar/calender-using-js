@@ -4,49 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-
     <title>Mini Calendar</title>
 </head>
-<body>
+<body class="bg-gradient-to-br from-gray-800 to-black text-white font-sans">
     <!-- Hero Section  -->
-    <div id="hero" class="min-h-[100vh] bg-gradient-to-b font-bold from-pink-200 to-purple-900 w-full flex justify-center items-center rounded-2xl">
-        <div id="calender" class="flex justify-center items-center bg-black h-[250px] w-[490px] rounded-md">
-            <div class="calendercontrol flex w-full h-full p-2 ">
-                <!-- date text -->
-                <div id="left" class="w-[50%] h-full flex-wrap  text-center justify-center text-lg bg-[#ff4000] ">
-                    <p class="mr-2 text-7xl text-white font-light" id="date">01</p><hr class="">
-                    <p class="text-sm" id="day">Sunday</p>
-                    <p class="text-2xl mt-[20px] font-serif">Good vibe only!</p>
-                    
-<i class="fa-regular fa-face-smile-wink"></i>
-                    
+    <div id="hero" class="min-h-[100vh] flex justify-center items-center">
+        <div id="calender" class="flex justify-center items-center bg-gradient-to-br from-purple-600 via-purple-800 to-purple-900 shadow-xl h-[300px] w-[550px] rounded-lg transform hover:scale-105 transition duration-500 ease-in-out">
+            <div class="calendercontrol flex w-full h-full p-4">
+                <!-- Date Section -->
+                <div id="left" class="w-[50%] h-full flex flex-col justify-center items-center text-center text-lg bg-gradient-to-b from-orange-500 to-red-600 rounded-l-lg p-4">
+                    <p class="text-8xl font-extrabold text-white" id="date">01</p>
+                    <hr class="w-12 border-white my-2">
+                    <p class="text-xl font-semibold text-white uppercase tracking-wide" id="day">Sunday</p>
+                    <p class="text-2xl mt-6 font-serif text-white">Good vibes only!</p>
+                    <i class="fa-regular fa-face-smile-wink text-3xl text-yellow-300 mt-3"></i>
                 </div>
-                <!-- month text -->
-                <div id="right" class="w-[50%] h-full flex-wrap  text-center justify-center text-lg bg-blue-700">
-                    <p class="mr-2 " id="month">January</p>
-                    <hr>
-                    <p id="year" class="text-7xl font-normal text-white">2024</p>
-                    <p class="text-2xl mt-[13px] font-serif text-white">Hava a great day!</p>
+
+                <!-- Month Section -->
+                <div id="right" class="w-[50%] h-full flex flex-col justify-center items-center text-center text-lg bg-gradient-to-b from-blue-700 to-indigo-900 rounded-r-lg p-4">
+                    <p class="text-3xl font-semibold text-white uppercase tracking-wide" id="month">January</p>
+                    <hr class="w-12 border-white my-2">
+                    <p id="year" class="text-7xl font-extrabold text-white">2024</p>
+                    <p class="text-2xl mt-6 font-serif text-white">Have a great day!</p>
                 </div>
             </div>
         </div>
     </div>
-    <script >
-const DateElement = document.getElementById('date');
-const day = document.getElementById('day');
-const month = document.getElementById('month');
-const year = document.getElementById('year');
+    
+    <script>
+        const DateElement = document.getElementById('date');
+        const day = document.getElementById('day');
+        const month = document.getElementById('month');
+        const year = document.getElementById('year');
 
+        const today = new Date();
+        const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-const today = new Date();
-const weekdays = ["sunday","monday","tuesday","wednesday","thrusday","friday","satruday"]
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-
-DateElement.innerHTML = today.getDate(); // Day of the month
-day.innerHTML =weekdays[ today.getDay()]; // Day of the week (0 - Sunday, 6 - Saturday)
-month.innerHTML = months[today.getMonth()] ; // Month (0 - 11, so we add 1 to make it 1 - 12)
-year.innerHTML = today.getFullYear(); // Full year (e.g., 2024)
+        DateElement.innerHTML = today.getDate(); // Day of the month
+        day.innerHTML = weekdays[today.getDay()]; // Day of the week
+        month.innerHTML = months[today.getMonth()]; // Month
+        year.innerHTML = today.getFullYear(); // Full year
     </script>
 </body>
 </html>
